@@ -3,19 +3,20 @@
 @import "common";
 @import "function";
 
-body {
-  color: $navy;
-}
-
 .header-nav,
 .hero-txt,
-.discri-txt, .feature ,.footer {
+.discri-txt,
+.feature,
+.footer {
   @include max-width($maxWidth-mobile);
 }
 
 .header-nav__cta,
 .hero-txt__para,
-.hero-txt__cta, .discri-txt__para, .feature-box__para, .footer-txt {
+.hero-txt__cta,
+.discri-txt__para,
+.feature-box__para,
+.footer-txt {
   @include txt-body(16, 1.62);
 }
 
@@ -25,16 +26,25 @@ body {
   @include cta(150, 48);
 }
 
+.hero-txt__heading,
+.feature-box__heading,
+.discri-txt__heading {
+  color: $navy;
+  text-transform: uppercase;
+}
+
+.feature-box,
+.header-nav,
+.hero-txt__cta {
+  @include flex-centering;
+}
+
 .header {
   margin: rem(23) rem(0);
 
-  &-nav {
-    @include flex-centering;
-
-    &__cta {
-      background-color: $veryLightNavy;
-      color: $navy;
-    }
+  &-nav__cta {
+    background-color: $veryLightNavy;
+    color: $navy;
   }
 }
 
@@ -44,14 +54,11 @@ img {
 
 .hero {
   margin: rem(64) rem(0) rem(24);
-  overflow: hidden;
 
   &-txt {
     margin-bottom: rem(64);
     &__heading {
       font-size: rem(48);
-      text-transform: uppercase;
-      color: $navy;
       margin-bottom: rem(32);
     }
 
@@ -60,7 +67,6 @@ img {
     }
 
     &__cta {
-      @include flex-centering;
       justify-content: inherit;
       gap: rem(16);
 
@@ -87,7 +93,6 @@ img {
 
   &-img {
     display: flex;
-    align-items: center;
     gap: rem(24);
     transform: translateX(rem(-24));
 
@@ -114,7 +119,6 @@ img {
     &__heading {
       font-size: rem(32);
       line-height: 1.12;
-      text-transform: uppercase;
     }
   }
 }
@@ -127,14 +131,12 @@ img {
 
   &-box {
     text-align: center;
-    @include flex-centering;
     flex-direction: column;
-    //align-items: center;
     &__svg {
+      @include grid-centering;
       width: rem(65);
       height: rem(65);
       border-radius: rem(16);
-      @include grid-centering;
       background-color: $orange;
       margin-bottom: rem(48);
     }
@@ -143,16 +145,14 @@ img {
       font-size: rem(24);
       line-height: 1.17;
       margin-bottom: rem(24);
-      text-transform: uppercase;
     }
   }
 }
 
-.footer-txt{
+.footer-txt {
   text-align: center;
   margin-bottom: rem(50);
 }
-
 
 @import "tablet";
 @import "desktop";

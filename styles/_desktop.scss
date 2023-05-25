@@ -23,17 +23,42 @@
     }
   }
 
+  .hero::after,
+  .discri::after {
+    content: "";
+    background-image: url(../assets/svg/pattern-square.svg);
+    background-repeat: no-repeat;
+    background-size: rem(255) rem(240);
+    position: absolute;
+    width: 50%;
+    height: 50%;
+  }
+
   .hero {
     grid-template-columns: rem(445) 1fr;
     margin: rem(83) auto rem(30);
     height: auto;
+    position: relative;
+
+    &::after {
+      top: 0;
+      background-position: right top;
+      right: rem(-285);
+    }
 
     &-txt {
-      &__cta {
-        &--primary {
-          &:hover {
-            background-color: $lightOrange;
-          }
+      &__heading {
+        font-size: rem(56);
+      }
+
+      &__para {
+        font-size: rem(18);
+        line-height: 1.44;
+      }
+
+      &__cta--primary {
+        &:hover {
+          background-color: $lightOrange;
         }
       }
     }
@@ -49,6 +74,13 @@
     grid-template-columns: 1fr minmax(auto, rem(255));
     align-items: center;
     margin-bottom: rem(168);
+    position: relative;
+
+    &::after {
+      background-position: left bottom;
+      bottom: 0;
+      left: rem(-285);
+    }
 
     &-txt {
       flex-direction: column;
