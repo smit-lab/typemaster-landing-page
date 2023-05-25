@@ -1,0 +1,29 @@
+@mixin grid-centering {
+  display: grid;
+  place-content: center;
+}
+
+@mixin flex-centering {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin cta($width, $height) {
+  @include grid-centering;
+  width: rem($width);
+  height: rem($height);
+  border-radius: rem(8);
+  text-transform: uppercase;
+}
+
+@mixin txt-body($fz-body, $lh-body) {
+  font-size: rem($fz-body);
+  line-height: $lh-body;
+  color: $lightNavy;
+}
+
+@mixin max-width($maxWidth) {
+  max-width: rem($maxWidth);
+  margin: 0 auto;
+}

@@ -1,0 +1,158 @@
+@import "reset";
+@import "variable";
+@import "common";
+@import "function";
+
+body {
+  color: $navy;
+}
+
+.header-nav,
+.hero-txt,
+.discri-txt, .feature ,.footer {
+  @include max-width($maxWidth-mobile);
+}
+
+.header-nav__cta,
+.hero-txt__para,
+.hero-txt__cta, .discri-txt__para, .feature-box__para, .footer-txt {
+  @include txt-body(16, 1.62);
+}
+
+.header-nav__cta,
+.hero-txt__cta--primary,
+.hero-txt__cta--secondary {
+  @include cta(150, 48);
+}
+
+.header {
+  margin: rem(23) rem(0);
+
+  &-nav {
+    @include flex-centering;
+
+    &__cta {
+      background-color: $veryLightNavy;
+      color: $navy;
+    }
+  }
+}
+
+img {
+  border-radius: rem(20);
+}
+
+.hero {
+  margin: rem(64) rem(0) rem(24);
+  overflow: hidden;
+
+  &-txt {
+    margin-bottom: rem(64);
+    &__heading {
+      font-size: rem(48);
+      text-transform: uppercase;
+      color: $navy;
+      margin-bottom: rem(32);
+    }
+
+    &__para {
+      margin-bottom: rem(32);
+    }
+
+    &__cta {
+      @include flex-centering;
+      justify-content: inherit;
+      gap: rem(16);
+
+      &--primary {
+        background-color: $orange;
+        color: $white;
+      }
+
+      &--secondary {
+        color: $lightNavy;
+      }
+    }
+  }
+
+  &-imgbox {
+    transform: translateX(rem(24));
+  }
+}
+
+.discri {
+  display: grid;
+  gap: rem(75);
+  margin-bottom: rem(111);
+
+  &-img {
+    display: flex;
+    align-items: center;
+    gap: rem(24);
+    transform: translateX(rem(-24));
+
+    &phone {
+      position: relative;
+    }
+    &-phone::before {
+      content: "";
+      border-radius: rem(20);
+      background-color: $orange;
+      mix-blend-mode: multiply;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+  }
+
+  &-txt {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+
+    &__heading {
+      font-size: rem(32);
+      line-height: 1.12;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.feature {
+  display: grid;
+  gap: rem(64);
+  align-items: center;
+  margin-bottom: rem(96);
+
+  &-box {
+    text-align: center;
+    @include flex-centering;
+    flex-direction: column;
+    //align-items: center;
+    &__svg {
+      width: rem(65);
+      height: rem(65);
+      border-radius: rem(16);
+      @include grid-centering;
+      background-color: $orange;
+      margin-bottom: rem(48);
+    }
+
+    &__heading {
+      font-size: rem(24);
+      line-height: 1.17;
+      margin-bottom: rem(24);
+      text-transform: uppercase;
+    }
+  }
+}
+
+.footer-txt{
+  text-align: center;
+  margin-bottom: rem(50);
+}
+
+
+@import "tablet";
+@import "desktop";
